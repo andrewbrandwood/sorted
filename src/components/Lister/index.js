@@ -15,6 +15,12 @@ const Lister = () => {
 		setPosts(newPosts)
 	}
 
+	const onCreatePost = post => {
+		const newPosts = [...allPosts]
+		newPosts.push({...post})
+		setPosts(newPosts)
+	}
+
 	useEffect(() => {
 		getPosts().then(data => {
 			setLoading(false);
@@ -36,7 +42,7 @@ const Lister = () => {
 							:
 							<>
 								{allPosts.map((data, index) => <Post {...data} key={index} onDelete={() => onDeletePost(data.id)} />)}
-								<CreatePost />
+								<CreatePost onCreate={post => onCreatePost(post)} />
 							</>
 							}
 					</>
@@ -44,20 +50,6 @@ const Lister = () => {
 			}
 		</>
 	)
-
-	
-
-	const onCreatePost = post => {
-		// TODO: implement
-	}
-
-	// TODO: implement render method, using Post and CreatePost e.g.
-	//				...
-	// 				<div className="postList">
-	//					...
-	//					<CreatePost />
-	// 				</div>
-	//				...
 
 
 };
