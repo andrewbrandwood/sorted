@@ -9,9 +9,7 @@ const Lister = () => {
 	const [allPosts, setPosts] = useState([]);
 
 	const onDeletePost = (id) => {
-		const newPosts = [...allPosts]
-		const item = newPosts.id === id;
-		newPosts.splice(item, 1)
+		const newPosts = allPosts.filter(post =>  post.id !== id)
 		setPosts(newPosts)
 	}
 
