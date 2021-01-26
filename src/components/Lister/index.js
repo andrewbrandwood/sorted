@@ -20,7 +20,12 @@ const Lister = () => {
 			{ 
 				loading ? <div>Loading...</div> : (
 					<>
-					{ allPosts.length <= 0 && <div>No posts available...</div> }
+					{ allPosts.length <= 0 && 
+						<>
+							<div>No posts available...</div>
+							<CreatePost />
+						</>
+						}
 					</>
 				)
 			}
