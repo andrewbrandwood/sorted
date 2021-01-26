@@ -36,6 +36,7 @@ const Lister = () => {
 							:
 							<>
 								{allPosts.map((data, index) => <Post {...data} key={index} onDelete={() => onDeletePost(data.id)} />)}
+								<CreatePost />
 							</>
 							}
 					</>
