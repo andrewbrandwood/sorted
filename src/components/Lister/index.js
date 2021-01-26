@@ -20,12 +20,17 @@ const Lister = () => {
 			{ 
 				loading ? <div>Loading...</div> : (
 					<>
-					{ allPosts.length <= 0 && 
-						<>
-							<div>No posts available...</div>
-							<CreatePost />
-						</>
-						}
+						{ allPosts.length <= 0 ? 
+							<>
+								<div>No posts available...</div>
+								<CreatePost />
+							</>
+
+							:
+							<>
+								{allPosts.map((data, index) => <Post {...data} key={index} />)}
+							</>
+							}
 					</>
 				)
 			}
