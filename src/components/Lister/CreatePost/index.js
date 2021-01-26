@@ -14,6 +14,11 @@ const CreatePost = ({ onCreate }) => {
 					...state, 
 					[payload.key]: payload.value
 				}
+			case 'reset' : 
+				return {
+					...state,
+					...initialState
+				}
 		}
 	};
 
