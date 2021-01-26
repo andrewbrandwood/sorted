@@ -8,6 +8,13 @@ const Lister = () => {
 	const [loading, setLoading] = useState(true);
 	const [allPosts, setPosts] = useState([]);
 
+	const onDeletePost = (id) => {
+		const newPosts = [...allPosts]
+		const item = newPosts.id === id;
+		newPosts.splice(item, 1)
+		setPosts(newPosts)
+	}
+
 	useEffect(() => {
 		getPosts().then(data => {
 			setLoading(false);
@@ -28,7 +35,7 @@ const Lister = () => {
 
 							:
 							<>
-								{allPosts.map((data, index) => <Post {...data} key={index} />)}
+								{allPosts.map((data, index) => <Post {...data} key={index} onDelete={() => onDeletePost(data.id)} />)}
 							</>
 							}
 					</>
@@ -37,9 +44,7 @@ const Lister = () => {
 		</>
 	)
 
-	const onDeletePost = (id) => {
-		// TODO: implement
-	}
+	
 
 	const onCreatePost = post => {
 		// TODO: implement
