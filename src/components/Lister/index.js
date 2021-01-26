@@ -15,7 +15,13 @@ const Lister = () => {
 		});
 	}, []);
 
-	return <div>TODO - wire up lister component</div>
+	return (
+		<>
+			{ 
+				loading && <div>Loading...</div>
+			}
+		</>
+	)
 
 	const onDeletePost = (id) => {
 		// TODO: implement
