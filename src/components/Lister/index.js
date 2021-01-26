@@ -18,7 +18,11 @@ const Lister = () => {
 	return (
 		<>
 			{ 
-				loading && <div>Loading...</div>
+				loading ? <div>Loading...</div> : (
+					<>
+					{ allPosts.length <= 0 && <div>No posts available...</div> }
+					</>
+				)
 			}
 		</>
 	)
